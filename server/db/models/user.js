@@ -14,10 +14,12 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
+    allowNull: false
   },
   githubId: {
     type: Sequelize.INTEGER
-  }
+  },
+  
 })
 
 module.exports = User
