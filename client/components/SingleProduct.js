@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const SingleProduct = (props) => {
   const product = props.singleProduct;
@@ -9,10 +9,10 @@ const SingleProduct = (props) => {
     <div>
       <div className="singleProduct">
         <img src={product.imageUrl}></img>
-        <h2>{product.name}</h3>
-        <h2>Type: {product.type}</h3>
-        <h3>${product.price}</h2>
-        <h3>{product.description}</h2>
+        <h2>{product.productName}</h2>
+        <h2>Type: {product.type}</h2>
+        <h3>${product.price / 100}</h3>
+        <h3>{product.description}</h3>
       </div>
     </div>
   );
