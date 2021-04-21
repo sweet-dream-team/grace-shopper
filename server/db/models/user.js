@@ -17,36 +17,6 @@ const User = db.define('user', {
   password: {
     type: Sequelize.STRING,
   },
-  billingName: { 
-    Sequelize.STRING,
-    allowNull: true
-  },
-  billingStreet: {
-    type: Sequelize.STRING,
-     allowNull: true
-  },
-  billingSecondaryStreet: {
-    type: Sequelize.STRING,
-     allowNull: true
-  },
-billingCity : {
-    type: Sequelize.STRING,
-     allowNull: true
-},
-billingZip: {
-  type: Sequelize.INTEGER,
-  allowNull: true
-},
-paymentCCNumber: {
-  type: Sequelize.INTEGER
-},
-paymentExpiry: {
-  type: Sequelize.INTEGER
-},
-paymentCVV: {
-  type: Sequelize.INTEGER
-},
-
 })
 
 module.exports = User

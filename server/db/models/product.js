@@ -18,8 +18,8 @@ const Product = db.define('product', {
       allowNull: false,
     },
     duration: Sequelize.INTEGER,
-    price: {
-     type: Sequelize.DECIMAL,
+    unitPrice: {
+     type: Sequelize.INTEGER,
       allowNull: false,
     },
     imageURL: {
@@ -30,6 +30,9 @@ const Product = db.define('product', {
     stockQuantity: {
       type: Sequelize.INTEGER,
       allowNull: false,
+      validate:{
+      min: 0
+      }
     }
   })
 
