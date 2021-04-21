@@ -17,8 +17,8 @@ Order.belongsToMany(Product, { through : OrderHistory })
 // Product.belongsTo(OrderHistory)
 // OrderHistory.hasMany(Order)
 // OrderHistory.hasMany(Product)
-Payment.belongsToMany(OrderHistory)
-OrderHistory.hasOne(Payment)
+Payment.hasMany(Order)
+Order.belongsTo(Payment)
 
 module.exports = {
   db,
