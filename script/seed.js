@@ -29,8 +29,6 @@ async function seed() {
   };
 }
 
-//Added this line into seed for testing pls delete
-
 /*
  We've separated the `seed` function from the `runSeed` function.
  This way we can isolate the error handling and exit trapping.
