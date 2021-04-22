@@ -126,14 +126,61 @@ async function seed() {
     }),
   ]);
 
-  console.log(`seeded ${products.length} dreams`);
-  console.log(`seeded successfully`);
-  // return {
-  //   users: {
-  //     cody: users[0],
-  //     murphy: users[1],
-  //   },
-  // };
+    //Creating Users
+    const users = await Promise.all([
+    User.create({
+      email: "michaelscott@aol.com",
+      password: "thatswhatshesaid911",
+      isAdmin: true
+    }),
+    User.create({
+      email: "dwightschrute@hotmail.com",
+      password: "beets123",
+      isAdmin: false
+    }),
+    User.create({
+      email: "jimhalpert@gmail.com",
+      password: "ilovepam143",
+      isAdmin: false
+    }),
+    User.create({
+      email: "angelamartin@yahoo.com",
+      password: "catscatscats",
+      isAdmin: false
+    }),
+    ])
+
+//Creating Orders
+
+const orders = await Promise.all([
+  Order.create({
+    status: OPEN,
+    price: 2099
+  }),
+  Order.create({
+    status: CONFIRMED,
+    price: 4599
+  }),
+  Order.create({
+    status: OPEN,
+    price: 1099
+  }),
+  Order.create({
+    status: CONFIRMED,
+    price: 1799
+  })
+])
+
+  console.log(`seeded ${products.length} dreams & ${users.length} users & ${orders.length} orders`)
+  console.log(`seeded successfully`)
+
+//   return {
+//     users: {
+//       cody: users[0],
+//       murphy: users[1],
+//     },
+//   };
+
 }
 
 /*
