@@ -3,7 +3,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from './components/Login';
+import { Login, Signup } from './components/AuthForm';
 import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
 import Home from "./components/Home";
