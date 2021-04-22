@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
 import axios from "axios";
 
 // action types
@@ -18,7 +20,7 @@ export const setProducts = () => {
       const { data } = await axios.get("/api/products");
       dispatch(_setProducts(data));
     } catch (err) {
-      console.log(err);
+      console.log("Error fetching all products via thunk");
     }
   };
 };
