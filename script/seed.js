@@ -24,7 +24,31 @@ async function seed() {
     Product.create({ productName: 'Teeth Falling Out Nightmare', unitPrice: 2099, description: 'We all have it. Nobody wants it. Gift someone you really dont like this disconcerting nightmare. Or have it yourself, you freak.', type: 'NIGHTMARE', duration: 9, imageURL: 'http://www.image.farm/images/2021/04/21/c37fd4fb6b07254e76e971ea939a99a1.png', stockQuantity: 10 }),
     ])
 
-  console.log(`seeded ${products.length} dreams`)
+    //Creating Users
+    const users = await Promise.all([
+    User.create({
+      email: "michaelscott@aol.com",
+      password: "thatswhatshesaid911",
+      isAdmin: true
+    }),
+    User.create({
+      email: "dwightschrute@hotmail.com",
+      password: "beets123",
+      isAdmin: false
+    }),
+    User.create({
+      email: "jimhalpert@gmail.com",
+      password: "ilovepam143",
+      isAdmin: false
+    }),
+    User.create({
+      email: "angelamartin@yahoo.com",
+      password: "catscatscats",
+      isAdmin: false
+    }),
+)]
+
+  console.log(`seeded ${products.length} dreams & ${users.length} users`)
   console.log(`seeded successfully`)
   return {
     users: {
