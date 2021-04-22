@@ -44,10 +44,6 @@ const Payment = db.define('payment', {
       },
       billingSecondaryStreet: {
          type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true
-        } 
       },
       billingCity: {
          type: Sequelize.STRING,
