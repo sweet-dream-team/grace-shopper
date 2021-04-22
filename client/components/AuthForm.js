@@ -1,4 +1,5 @@
 import React from "react";
+import {history} from 'react-router-dom'
 import { connect } from "react-redux";
 import { authenticate } from "../store";
 
@@ -7,7 +8,7 @@ import { authenticate } from "../store";
  */
 
 const AuthForm = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+  const { name, displayName, handleSubmit, error} = props;
 
   return (
     <div>
@@ -61,14 +62,15 @@ const mapSignup = (state) => {
   };
 };
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = (dispatch, {history}) => {
   return {
     handleSubmit(evt) {
       evt.preventDefault();
       const formName = evt.target.name;
       const email = evt.target.email.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(email, password, formName));
+      dispatch(authenticate(email, password, formName, history));
+      // this.props.history.push('/')
     },
   };
 };
