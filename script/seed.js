@@ -46,9 +46,30 @@ async function seed() {
       password: "catscatscats",
       isAdmin: false
     }),
-)]
+    ])
 
-  console.log(`seeded ${products.length} dreams & ${users.length} users`)
+//Creating Orders
+
+const orders = await Promise.all([
+  Order.create({
+    status: OPEN,
+    price: 2099
+  }),
+  Order.create({
+    status: CONFIRMED,
+    price: 4599
+  }),
+  Order.create({
+    status: OPEN,
+    price: 1099
+  }),
+  Order.create({
+    status: CONFIRMED,
+    price: 1799
+  })
+])
+
+  console.log(`seeded ${products.length} dreams & ${users.length} users & ${orders.length} orders`)
   console.log(`seeded successfully`)
   return {
     users: {
