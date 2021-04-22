@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { Product },
+  models: { Product, User, Order},
 } = require("../server/db");
 
 /**
@@ -154,19 +154,19 @@ async function seed() {
 
 const orders = await Promise.all([
   Order.create({
-    status: OPEN,
+    status: 'OPEN',
     price: 2099
   }),
   Order.create({
-    status: CONFIRMED,
+    status: 'CONFIRMED',
     price: 4599
   }),
   Order.create({
-    status: OPEN,
+    status: 'OPEN',
     price: 1099
   }),
   Order.create({
-    status: CONFIRMED,
+    status: 'CONFIRMED',
     price: 1799
   })
 ])
