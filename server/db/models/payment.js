@@ -27,7 +27,7 @@ const Payment = db.define('payment', {
          min: 2021,
          max: 2050
        } 
-      }
+      },
      paymentCVV: {
           type: Sequelize.INTEGER,
        allowNull: false,
@@ -44,10 +44,6 @@ const Payment = db.define('payment', {
       },
       billingSecondaryStreet: {
          type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true
-        } 
       },
       billingCity: {
          type: Sequelize.STRING,

@@ -13,12 +13,12 @@ Order.belongsTo(User);
 User.hasMany(Order);
 Product.belongsToMany(Order, { through : OrderHistory })
 Order.belongsToMany(Product, { through : OrderHistory })
-// Order.belongsTo(OrderHistory)
-// Product.belongsTo(OrderHistory)
-// OrderHistory.hasMany(Order)
-// OrderHistory.hasMany(Product)
-Payment.belongsToMany(OrderHistory)
-OrderHistory.hasOne(Payment)
+// Order.hasMany(OrderHistory)
+// Product.hasMany(OrderHistory)
+// OrderHistory.belongsTo(Order)
+// OrderHistory.belongsTo(Product)
+Payment.hasMany(Order)
+Order.belongsTo(Payment)
 
 module.exports = {
   db,
