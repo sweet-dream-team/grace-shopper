@@ -27,7 +27,7 @@ const Payment = db.define('payment', {
          min: 2021,
          max: 2050
        } 
-      }
+      },
      paymentCVV: {
           type: Sequelize.INTEGER,
        allowNull: false,

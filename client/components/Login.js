@@ -5,7 +5,7 @@ import {authenticate} from '../store'
 /**
  * COMPONENT
  */
-const AuthForm = props => {
+const LogIn = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
