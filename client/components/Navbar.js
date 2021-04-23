@@ -7,7 +7,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <nav>
       <div>
-        <Link to="/"> Name of Store</Link>
+        <Link to="/">Dreamporium</Link>
         <div>
           <Link to="/dreams">Dreams</Link>
           {isLoggedIn ? (

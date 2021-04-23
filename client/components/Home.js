@@ -2,18 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 
 export const Home = (props) => {
-  //const { username } = props;
+  //const { email } = props;
 
   return (
     <div className="home">
-      <h3>Name of Store</h3>
+      <h3>Dreamporium</h3>
+      <p>
+        Your dreams <i>await</i> you
+      </p>
     </div>
   );
 };
 
 // const mapState = (state) => {
 //   return {
-//     username: state.auth.username,
+//     email: state.auth.email,
 //   };
 // };
 
