@@ -10,7 +10,7 @@ import { getSingleProduct } from "../store/singleProduct";
 export class SingleProduct extends React.Component {
   constructor() {
     super();
-    //add possible binding functions here
+    this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     try {
@@ -19,6 +19,32 @@ export class SingleProduct extends React.Component {
       console.error(error);
     }
   }
+
+  handleClick(event) {
+    const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
+
+    let existing = JSON.parse(localStorage.getItem("cart"));
+    if (!existing) {
+      existing = [];
+    }
+    existing.push(newCartItem);
+
+    localStorage.setItem("cart", JSON.stringify(existing));
+
+    /// THIS SOLUTION WORKS ///
+    // const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
+
+    // let existing = JSON.parse(localStorage.getItem("cart"));
+    // if (!existing) {
+    //   existing = [];
+    // }
+    // existing.push(newCartItem);
+
+    // localStorage.setItem("cart", JSON.stringify(existing));
+
+    //console.log("PARSING", JSON.parse(localStorage.getItem("cart")));
+  }
+
   render() {
     const product = this.props.singleProduct;
     console.log("product is ", product);
@@ -30,6 +56,9 @@ export class SingleProduct extends React.Component {
           <h2>Type: {product.type}</h2>
           <h3>${product.unitPrice / 100}</h3>
           <h3>{product.description}</h3>
+          <button type="button" onClick={() => this.handleClick()}>
+            Add To Cart <i className="fa fa-cart-plus"></i>
+          </button>
         </div>
       </div>
     ) : (

@@ -6,7 +6,10 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <h3>Name of Store</h3>
+      <h3>Dreamporium</h3>
+      <p>
+        Your dreams <i>await</i> you
+      </p>
     </div>
   );
 };

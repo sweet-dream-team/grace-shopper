@@ -1,15 +1,14 @@
-
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from './components/AuthForm';
+import { Login, Signup } from "./components/AuthForm";
 import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
 import Home from "./components/Home";
+import Cart from "./components/Cart";
 import { me } from "./store";
 import EditProduct from './components/EditProduct'
-
 
 /**
  * COMPONENT
@@ -30,7 +29,9 @@ class Routes extends Component {
           <Route path="/signup" component={Signup} />
           <Route exact path="/dreams" component={AllProducts} />
           <Route exact path="/dreams/:productId" component={SingleProduct} />
-          <Route exact path='/dreams/:productId/edit' component={EditProduct}/>          {/* <Route path="/cart" component={Cart} /> */}
+          <Route exact path='/dreams/:productId/edit' component={EditProduct}/>          
+          <Route path="/cart" component={Cart} />
+
         </Switch>
       </div>
     );
