@@ -21,18 +21,28 @@ export class SingleProduct extends React.Component {
   }
 
   handleClick(event) {
-    //event.preventDefault()
-    // console.log(this.props.singleProduct);
     const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
 
-    let existing = localStorage.getItem("cart");
-    existing = existing ? existing.split(",") : [];
-
+    let existing = JSON.parse(localStorage.getItem("cart"));
+    if (!existing) {
+      existing = [];
+    }
     existing.push(newCartItem);
 
     localStorage.setItem("cart", JSON.stringify(existing));
-    //localStorage.setItem("cart", JSON.stringify(newCartItem));
-    console.log("local storage", localStorage);
+
+    /// THIS SOLUTION WORKS ///
+    // const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
+
+    // let existing = JSON.parse(localStorage.getItem("cart"));
+    // if (!existing) {
+    //   existing = [];
+    // }
+    // existing.push(newCartItem);
+
+    // localStorage.setItem("cart", JSON.stringify(existing));
+
+    //console.log("PARSING", JSON.parse(localStorage.getItem("cart")));
   }
 
   render() {
