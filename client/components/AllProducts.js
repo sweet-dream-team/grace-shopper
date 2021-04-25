@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-expressions */
 import React from "react";
 import { connect } from "react-redux";
-import { setProducts } from "../store/products";
+import { setProducts, deleteDreamThunk } from "../store/products";
 import { Link } from "react-router-dom";
 
 export class AllProducts extends React.Component {

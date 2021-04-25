@@ -53,4 +53,25 @@ router.put('/:productId/edit', async(req, res, next) =>{
   }
 })
 
+
+
+/** Delete Routes */
+
+router.delete('/:productId', async (req, res, next) => {
+  try {
+    const dream = await Product.findByPk(req.params.productId);
+    console.log("dream: ", dream)
+    if(!dream){
+    const err = new Error(`There's no dream here with that ID!!`)
+    err.status = 404
+    throw error
+  }
+    await dream.destroy();
+    res.json(dream);
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;
