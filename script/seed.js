@@ -22,7 +22,7 @@ async function seed() {
         "Are you a big fan of jelly? Or beans? Well have we got a dream for people who actually like jellybeans.",
       type: "SWEET",
       duration: 7,
-      imageURL: "jellybeandream.png",
+      imageURL: "defaultsheepimage.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -111,7 +111,7 @@ async function seed() {
         "We all have it. Nobody wants it. Gift someone you really dont like this disconcerting nightmare. Or have it yourself, you freak.",
       type: "NIGHTMARE",
       duration: 9,
-      imageURL: "teethfallingout.png",
+      imageURL: "teethfallinout.png",
       stockQuantity: 10,
     }),
   ]);
