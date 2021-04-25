@@ -70,7 +70,7 @@ const mapDispatch = (dispatch, {history}) => {
       const email = evt.target.email.value;
       const password = evt.target.password.value;
       dispatch(authenticate(email, password, formName, history));
-      // this.props.history.push('/')
+      this.props.history.push('/')
     },
   };
 };

@@ -39,6 +39,7 @@ handleChange(evt) {
 async handleSubmit(evt) {
     evt.preventDefault();
     await this.props.editProduct(this.props.match.params.productId, { ...this.state });
+    this.props.history.push('/admin')
   }
     render() {
     
@@ -67,7 +68,7 @@ async handleSubmit(evt) {
 
 
         <button type='submit' className='submitbutton'>Submit</button><br/>
-        <br/><Link to='/'>Nevermind!</Link>
+        <br/><Link to='/admin'>Nevermind!</Link>
 
       </form> 
       </div> 

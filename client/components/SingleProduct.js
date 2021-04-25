@@ -6,7 +6,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getSingleProduct } from "../store/singleProduct";
+import { getSingleProduct} from "../store/singleProduct";
+import history from "../history";
 
 export class SingleProduct extends React.Component {
   constructor() {
@@ -16,7 +17,9 @@ export class SingleProduct extends React.Component {
     //   quantity: 1,
     // };
     this.handleClick = this.handleClick.bind(this);
+
     //this.handleChange = this.handleChange.bind(this);
+
   }
   componentDidMount() {
     try {
@@ -26,10 +29,15 @@ export class SingleProduct extends React.Component {
     }
   }
 
+
+  handleClick(event) {
+    const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
+
   // handleChange(event) {
   //   console.log("event is", event);
   //   this.setState({ quantity: event.target.value });
   // }
+
 
   handleClick() {
     const newCartItem = {
@@ -65,7 +73,7 @@ export class SingleProduct extends React.Component {
     return product.id !== undefined ? (
       <div>
         <div className="singleProduct">
-          <img src={product.imageURL}></img>
+          <img src={product.imageURL} />
           <h2>{product.productName}</h2>
           <h2>Type: {product.type}</h2>
           <h3>${product.unitPrice / 100}</h3>
