@@ -25,7 +25,7 @@ const Product = db.define("product", {
   imageURL: {
     type: Sequelize.TEXT,
     allowNull: false,
-    defaultValue: "defaultsheepimage.png",
+    defaultValue: "/defaultsheepimage.png",
   },
   stockQuantity: {
     type: Sequelize.INTEGER,
