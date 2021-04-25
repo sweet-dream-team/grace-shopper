@@ -22,7 +22,7 @@ async function seed() {
         "Are you a big fan of jelly? Or beans? Well have we got a dream for people who actually like jellybeans.",
       type: "SWEET",
       duration: 7,
-      imageURL: "jellybeandream.png",
+      imageURL: "/jellybeandream.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -32,7 +32,7 @@ async function seed() {
         "This dream is so sweet you should bring your toothbrush to bed! Think of all your favorite sweets: they. are. there.",
       type: "SWEET",
       duration: 5,
-      imageURL: "thesweetestdream.png",
+      imageURL: "/thesweetestdream.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -42,7 +42,7 @@ async function seed() {
         "One of the most relaxing places to be: now without sand! Enjoy a relaxing day at the beach... at night! While you sleep!",
       type: "SWEET",
       duration: 3,
-      imageURL: "adreamatthebeach.png",
+      imageURL: "/adreamatthebeach.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -52,7 +52,7 @@ async function seed() {
         "Be the ringmaster of your own dream! Dance with the elephants and fly through the air on trapeze like the star you are!",
       type: "SWEET",
       duration: 9,
-      imageURL: "thecircusdream.png",
+      imageURL: "/thecircusdream.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -62,7 +62,7 @@ async function seed() {
         "Time to spend them dolla dolla bills in your dreams! Own the most luxurious car or boat or plane or whatever rich people are riding in these days! Buy a 10,000 dollar sandwich just because you can!",
       type: "SWEET",
       duration: 6,
-      imageURL: "dreamillionaire.png",
+      imageURL: "/dreamillionaire.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -72,7 +72,7 @@ async function seed() {
         "Once upon a time there was a magical fairy who ran the kingdom. It was you! Battle dragons and save the prince in this epic dream!",
       type: "SWEET",
       duration: 3,
-      imageURL: "onceuponadream.png",
+      imageURL: "/onceuponadream.png",
       stockQuantity: 5,
     }),
     Product.create({
@@ -82,7 +82,7 @@ async function seed() {
         "Oh god! You showed up to class wearing nothing but your skivvies. Get ready to deal with this all night.",
       type: "NIGHTMARE",
       duration: 8,
-      imageURL: "schoolinundies.png",
+      imageURL: "/schoolinundies.png",
       stockQuantity: 10,
     }),
     Product.create({
@@ -92,7 +92,7 @@ async function seed() {
         "Dream about being in your very own horror movie? Heres your chance!",
       type: "NIGHTMARE",
       duration: 5,
-      imageURL: "monsters.png",
+      imageURL: "/monsters.png",
       stockQuantity: 10,
     }),
     Product.create({
@@ -101,7 +101,7 @@ async function seed() {
       description: "AHHHHHHHHHHHHHH EVERYTHINGS ON FIRE SWEET MARY HELP US ALL",
       type: "NIGHTMARE",
       duration: 3,
-      imageURL: "firenightmare.png",
+      imageURL: "/firenightmare.png",
       stockQuantity: 10,
     }),
     Product.create({
@@ -111,7 +111,7 @@ async function seed() {
         "We all have it. Nobody wants it. Gift someone you really dont like this disconcerting nightmare. Or have it yourself, you freak.",
       type: "NIGHTMARE",
       duration: 9,
-      imageURL: "teethfallingout.png",
+      imageURL: "/teethfallingout.png",
       stockQuantity: 10,
     }),
   ]);
