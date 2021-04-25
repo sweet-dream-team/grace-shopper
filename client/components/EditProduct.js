@@ -68,7 +68,7 @@ async handleSubmit(evt) {
 
 
         <button type='submit' className='submitbutton'>Submit</button><br/>
-        <br/><Link to='/'>Nevermind!</Link>
+        <br/><Link to='/admin'>Nevermind!</Link>
 
       </form> 
       </div> 
