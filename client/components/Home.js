@@ -6,7 +6,7 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <h3>Dreamporium</h3>
+      <h3>Dreamporium Test</h3>
       <p>
         Your dreams <i>await</i> you
       </p>
