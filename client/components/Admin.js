@@ -31,6 +31,8 @@ export class Admin extends React.Component {
       <div>
         <h1>Dreams</h1>
         <div>
+     <Link to={`/admin/create`}><button type="button" > Add New Dream </button></Link>
+
           {products.map((product) => (
             <div key={product.id}>
               <Link to={`/dreams/${product.id}`}>

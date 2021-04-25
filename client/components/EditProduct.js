@@ -43,9 +43,7 @@ async handleSubmit(evt) {
   }
     render() {
     
-    console.log('in the render')
     const {product} = this.props
-    console.log('props: ', this.props)
         return (
             <div>
                     {!this.props.product ?

@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import { me } from "./store";
 import EditProduct from './components/EditProduct'
 import Admin from './components/Admin'
+import CreateDream from './components/CreateDream'
 
 /**
  * COMPONENT
@@ -34,6 +35,7 @@ class Routes extends Component {
           <Route exact path='/:productId/edit' component = {EditProduct}/>      
           <Route path="/cart" component={Cart} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin/create" component={CreateDream}/>
         </Switch>
       </div>
     );

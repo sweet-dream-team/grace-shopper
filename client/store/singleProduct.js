@@ -12,6 +12,8 @@ const EDIT_PRODUCT = 'EDIT_PRODUCT'
 
 const DELETE_PRODUCT = 'DELETE_PRODUCT'
 
+
+
 /** Action Creators */
 
 export const _getProduct = (singleProduct) => {
