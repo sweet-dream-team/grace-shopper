@@ -53,7 +53,7 @@ export const editSingleProductThunk = (id, info) =>{
   return async (dispatch) =>{
     try {
      const { data } = await axios.put(`/api/products/${id}/edit`, info);
-      dispatch(editProduct(data))
+      dispatch(_editSingleProduct(data))
     } catch (err ) {
       console.log(err)
     }

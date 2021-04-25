@@ -39,6 +39,7 @@ handleChange(evt) {
 async handleSubmit(evt) {
     evt.preventDefault();
     await this.props.editProduct(this.props.match.params.productId, { ...this.state });
+    this.props.history.push('/admin')
   }
     render() {
     

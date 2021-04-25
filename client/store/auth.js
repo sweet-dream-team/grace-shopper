@@ -24,7 +24,6 @@ export const me = (history) => async dispatch => {
         authorization: token
       }
     })
-    history.push('/')
     return dispatch(setAuth(res.data))
   }
 }
