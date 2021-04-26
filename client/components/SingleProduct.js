@@ -29,8 +29,6 @@ export class SingleProduct extends React.Component {
     }
   }
 
-
-
   // handleChange(event) {
   //   console.log("event is", event);
   //   this.setState({ quantity: event.target.value });

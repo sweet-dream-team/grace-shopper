@@ -60,7 +60,7 @@ export const deleteDreamThunk = (id, history) => {
 export const createDreamThunk = (product) =>{
   return async(dispatch) =>{
     try {
-      const { data } = await axios.post('/api/admin/create', product);
+      const { data } = await axios.post('/auth/admin/', product);
       dispatch(_createProduct(data));
     } catch (error) {
       console.error(error);
