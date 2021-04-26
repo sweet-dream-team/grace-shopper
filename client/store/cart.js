@@ -15,6 +15,20 @@ export const _updateCart = (cart) => {
 // 2) if true - put route
 // 3) if false - post route
 
+export const cartChecker = (cart) => {
+  return async (dispatch) => {
+    try {
+      const check = await axios.get("/api/cart");
+      if (check) {
+        // run true (put) thunk
+      } else {
+        // run false (post) thunk
+      }
+    } catch (err) {
+      console.log("Error checking cart via thunk");
+    }
+  };
+};
 //thunks
 export const updateCart = (cart) => {
   return async (dispatch) => {

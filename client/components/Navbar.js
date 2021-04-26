@@ -21,10 +21,10 @@ class Navbar extends React.Component {
 
   render() {
     // rendering a static quantity:
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    let totalQuantity = cart.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
+    // const cart = JSON.parse(localStorage.getItem("cart"));
+    // let totalQuantity = cart.reduce((total, item) => {
+    //   return total + item.quantity;
+    // }, 0);
 
     // using state:
     // const { quantity } = this.state;
@@ -49,7 +49,7 @@ class Navbar extends React.Component {
               <Link to="/cart">
                 <i className="fa fa-shopping-cart"></i>
                 <span className="badgeWarning" id="cartCount">
-                  {totalQuantity}
+                  {/* {totalQuantity} */}
                 </span>
               </Link>
             </div>

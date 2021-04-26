@@ -123,6 +123,7 @@ async function seed() {
       password: "thatswhatshesaid911",
       isAdmin: true,
     }),
+
     User.create({
       email: "dwightschrute@hotmail.com",
       password: "beets123",
@@ -152,7 +153,7 @@ async function seed() {
       price: 4599,
     }),
     Order.create({
-      status: "OPEN",
+      status: "CONFIRMED",
       price: 1099,
     }),
     Order.create({
@@ -161,17 +162,13 @@ async function seed() {
     }),
   ]);
 
+  //Association
+  await users[1].addOrder([orders[0], orders[1]]);
+
   console.log(
     `seeded ${products.length} dreams & ${users.length} users & ${orders.length} orders`
   );
   console.log(`seeded successfully`);
-
-  //   return {
-  //     users: {
-  //       cody: users[0],
-  //       murphy: users[1],
-  //     },
-  //   };
 }
 
 /*

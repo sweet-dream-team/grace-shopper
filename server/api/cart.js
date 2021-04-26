@@ -7,15 +7,21 @@ const {
 
 router.get("/", async (req, res, next) => {
   try {
-    const cart = await Order.findAll({
-      where: {
-        // where userId is the id of the user
-        userId: ,
-      },
-    });
+    const user = await User.findByToken(localStorage.getItem("token"));
+
+    // change to findAll once we figure out userId part
+    // const cart = await Order.findOne({
+    //   where: {
+    //     // user: user,
+    //     status: "OPEN",
+    //   },
+    // });
+    res.json(user);
   } catch (err) {
     next(err);
   }
 });
+
+// POST routes
 
 module.exports = router;
