@@ -30,8 +30,8 @@ export class SingleProduct extends React.Component {
   }
 
 
-  handleClick(event) {
-    const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
+  // handleClick(event) {
+  //   const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
 
   // handleChange(event) {
   //   console.log("event is", event);

@@ -29,6 +29,7 @@ class CreateDream extends Component {
       description: '',
       unitPrice: 1099,
     });
+    this.props.history.push('/admin')
   }
 
   render() {

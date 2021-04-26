@@ -5,7 +5,7 @@ const {
 
 /** Post Routes */
 
-  router.post('/create', async (req, res, next) => {
+  router.post('/', async (req, res, next) => {
   try {
       const dream = {
       productName: req.body.productName,
