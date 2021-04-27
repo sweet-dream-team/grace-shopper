@@ -14,7 +14,6 @@ export class SingleProduct extends React.Component {
   constructor() {
     super();
     this.state = {
-      //productId: Number(this.props.match.params.productId),
       quantity: 1,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -29,12 +28,12 @@ export class SingleProduct extends React.Component {
   }
 
   handleChange(event) {
-    console.log("event is", event);
     this.setState({ quantity: event.target.value });
   }
 
   handleClick() {
     const newCartItem = {
+      ...this.props.singleProduct,
       productId: this.props.singleProduct.id,
       quantity: Number(this.state.quantity),
     };
@@ -64,6 +63,7 @@ export class SingleProduct extends React.Component {
 
     return product.id !== undefined ? (
       <div>
+        <Link to="/dreams">Back to Dreams</Link>
         <div className="singleProduct">
           <img src={product.imageURL} />
           <h2>{product.productName}</h2>
@@ -85,7 +85,9 @@ export class SingleProduct extends React.Component {
             </select>
 
             <button type="button" onClick={() => this.handleClick()}>
-              Add To Cart <i className="fa fa-cart-plus"></i>
+              <Link to="/dreams">
+                Add To Cart <i className="fa fa-cart-plus"></i>
+              </Link>
             </button>
           </div>
         </div>
@@ -111,16 +113,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);
-
-/// THIS SOLUTION WORKS FOR LOCAL STORAGE AT IT'S BASE, KEEP HERE IN CASE WE NEED TO GO BACK TO FORM///
-// const newCartItem = { productId: this.props.singleProduct.id, quantity: 1 };
-
-// let existing = JSON.parse(localStorage.getItem("cart"));
-// if (!existing) {
-//   existing = [];
-// }
-// existing.push(newCartItem);
-
-// localStorage.setItem("cart", JSON.stringify(existing));
-
-//console.log("PARSING", JSON.parse(localStorage.getItem("cart")));
