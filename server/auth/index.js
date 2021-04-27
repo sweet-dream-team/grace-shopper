@@ -8,8 +8,8 @@ router.use("/admin", require("./admin"))
 router.post('/login', async (req, res, next) => {
   try {
     res.send({ token: await User.authenticate(req.body)}); 
-    history.push('/')
   } catch (err) {
+    res.send('Incorrect Email/Password!')
     next(err)
   }
 })

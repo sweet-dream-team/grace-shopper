@@ -3,6 +3,7 @@ const {
   models: { Product, User },
 } = require("../db");
 
+
 /** Gatekeeping Middleware */
 const requireToken = async (req, res, next) => {
   try {
@@ -16,31 +17,9 @@ const requireToken = async (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) =>{
-  console.log("req.user: ", req.user)
   if(!req.user.isAdmin) {
     return res.status(403).send('You are NOT allowed to be here >:(')
   } else {
     next()
   }
 }
-
-/** Get Routes */
-
-
-/** Post Routes */
-
-  router.post('/', requireToken, isAdmin, async (req, res, next) => {
-  try {
-      const dream = {
-      productName: req.body.productName,
-      description: req.body.description,
-      unitPrice: req.body.unitPrice,
-    };
-    const newDream = await Product.create(dream)
-    res.json(newDream);
-  } catch (error) {
-    next(error);
-  }
-});
-
-module.exports = router;

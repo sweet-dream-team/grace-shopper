@@ -10,6 +10,8 @@ const DELETE_PRODUCT = 'DELETE_PRODUCT'
 const CREATE_PRODUCT = 'CREATE_PRODUCT'
 
 
+
+
 // action creators
 export const _setProducts = (products) => {
   return {
@@ -31,6 +33,8 @@ export const _createProduct = (product) =>{
     product
   }
 }
+
+
 
 // thunks
 
@@ -60,7 +64,12 @@ export const deleteDreamThunk = (id, history) => {
 export const createDreamThunk = (product) =>{
   return async(dispatch) =>{
     try {
-      const { data } = await axios.post('/auth/admin/', product);
+      const token = window.localStorage.getItem('token')
+      const { data } = await axios.post('/auth/admin/', product, {
+      headers: {
+        authorization: token
+      }
+    });
       dispatch(_createProduct(data));
     } catch (error) {
       console.error(error);
