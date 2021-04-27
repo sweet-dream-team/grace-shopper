@@ -41,7 +41,11 @@ export const _createProduct = (product) =>{
 export const setProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/products");
+      const { data } = await axios.get("/api/products", {
+      headers: {
+        authorization: token
+      }
+    });
       dispatch(_setProducts(data));
     } catch (err) {
       console.log("Error fetching all products via thunk");
