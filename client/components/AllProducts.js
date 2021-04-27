@@ -1,3 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable lines-between-class-members */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -5,23 +9,33 @@
 /* eslint-disable no-unused-expressions */
 import React from "react";
 import { connect } from "react-redux";
-import { setProducts, deleteDreamThunk } from "../store/products";
 import { Link } from "react-router-dom";
+import { setProducts } from "../store/products";
+import { getCart, updateOrderHistory } from "../store/cart";
 
 export class AllProducts extends React.Component {
   constructor() {
     super();
+    this.cartToDatabase = this.cartToDatabase.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.props.getProducts();
+    try {
+      this.props.getProducts();
+      if (this.props.auth.id) {
+        this.props.getCart(this.props.auth.id);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   handleClick(id) {
-    console.log(this.props.products);
+    console.log("props.products", this.props.products);
     const newCartItem = {
-      productId: id,
+      ...this.props.products[id - 1],
+      //productId: id,
       quantity: 1,
     };
 
@@ -30,20 +44,37 @@ export class AllProducts extends React.Component {
     if (!existingCart) {
       existingCart = [];
       existingCart.push(newCartItem);
+      this.cartToDatabase(existingCart);
       return localStorage.setItem("cart", JSON.stringify(existingCart));
     }
 
     for (let i = 0; i < existingCart.length; i++) {
       let currentItem = existingCart[i];
-      if (currentItem.productId === newCartItem.productId) {
+      if (currentItem.id === newCartItem.id) {
         currentItem.quantity++;
+        this.cartToDatabase(existingCart);
         return localStorage.setItem("cart", JSON.stringify(existingCart));
       }
     }
     existingCart.push(newCartItem);
+    this.cartToDatabase(existingCart);
     localStorage.setItem("cart", JSON.stringify(existingCart));
   }
+
+  cartToDatabase(newCart) {
+    let cartId;
+    if (this.props.cart.id) {
+      cartId = this.props.cart.id;
+    }
+    newCart.map((eachObject) => {
+      this.props.changeCart(eachObject, cartId);
+    });
+
+    this.props.getCart(this.props.auth.id);
+  }
+
   render() {
+    //console.log("Redux state is currently: ", this.props);
     const products = this.props.products;
 
     return (
@@ -57,11 +88,12 @@ export class AllProducts extends React.Component {
                 <img src={product.imageURL} />
               </Link>
               <p>Price: ${product.unitPrice / 100}</p>
-
               <div className="addToCart">
                 <button
                   type="button"
-                  onClick={() => this.handleClick(product.id)}
+                  onClick={() => {
+                    this.handleClick(product.id);
+                  }}
                 >
                   Add To Cart <i className="fa fa-cart-plus"></i>
                 </button>
@@ -77,12 +109,17 @@ export class AllProducts extends React.Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
+    auth: state.auth,
+    cart: state.cart,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getProducts: () => dispatch(setProducts()),
+    getCart: (userId) => dispatch(getCart(userId)),
+    changeCart: (eachObj, dbCartId) =>
+      dispatch(updateOrderHistory(eachObj, dbCartId)),
   };
 };
 

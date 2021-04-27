@@ -1,40 +1,48 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable no-underscore-dangle */
 import axios from "axios";
+// import { head } from "../../server/api/cart";
 
 // action types
 const UPDATE_CART = "UPDATE_CART";
+const GET_CART = "GET_CART";
+
+const _getCart = (cart) => {
+  return {
+    type: GET_CART,
+    cart,
+  };
+};
 
 //action creators
-export const _updateCart = (cart) => {
+const _updateCart = (cart) => {
   return {
     type: UPDATE_CART,
     cart,
   };
 };
 
-// 1) check if there's a pending order instance associated with user
-// 2) if true - put route
-// 3) if false - post route
-
-export const cartChecker = (cart) => {
+//get cart
+export const getCart = (userId) => {
   return async (dispatch) => {
     try {
-      const check = await axios.get("/api/cart");
-      if (check) {
-        // run true (put) thunk
-      } else {
-        // run false (post) thunk
-      }
+      const { data } = await axios.get(`/api/cart/${userId}`);
+      dispatch(_getCart(data[0]));
     } catch (err) {
-      console.log("Error checking cart via thunk");
+      console.log("Error getting cart via thunk");
     }
   };
 };
-//thunks
-export const updateCart = (cart) => {
+
+//edit cart
+export const updateOrderHistory = (eachProduct, dbCartId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put("/api/cart", cart);
-      dispatch(_updateCart(data));
+      const eachPost = await axios.post(`/api/cart/${dbCartId}`, eachProduct);
+      if (!eachPost.data[1]) {
+        await axios.put(`/api/cart/edit/${dbCartId}`, eachProduct);
+      }
     } catch (err) {
       console.log("Error updating cart via thunk");
     }
@@ -44,10 +52,10 @@ export const updateCart = (cart) => {
 //reducer
 export default (state = [], action) => {
   switch (action.type) {
+    case GET_CART:
+      return action.cart;
     case UPDATE_CART:
-      return state.map((item) =>
-        item.id === action.item.id ? action.item : item
-      );
+      return [...state, action.cart]; //double check if this works
     default:
       return state;
   }
