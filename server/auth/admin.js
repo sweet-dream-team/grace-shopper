@@ -2,27 +2,8 @@ const router = require("express").Router();
 const {
   models: { Product, User },
 } = require("../db");
+const  { requireToken, isAdmin } = require('../api/gatekeeping')
 
-/** Gatekeeping Middleware */
-const requireToken = async (req, res, next) => {
-  try {
-    const token = req.headers.authorization;
-    const user = await User.findByToken(token);
-    req.user = user;
-    next();
-  } catch(error) {
-    next(error);
-  }
-};
-
-const isAdmin = (req, res, next) =>{
-  console.log("req.user: ", req.user)
-  if(!req.user.isAdmin) {
-    return res.status(403).send('You are NOT allowed to be here >:(')
-  } else {
-    next()
-  }
-}
 
 /** Get Routes */
 router.get("/users", requireToken, isAdmin, async (req, res, next) => {

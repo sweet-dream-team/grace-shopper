@@ -5,7 +5,7 @@ const {
 
 
 /** Gatekeeping Middleware */
-const requireToken = async (req, res, next) => {
+ const requireToken = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
     const user = await User.findByToken(token);
@@ -23,3 +23,5 @@ const isAdmin = (req, res, next) =>{
     next()
   }
 }
+
+module.exports = { requireToken, isAdmin }
