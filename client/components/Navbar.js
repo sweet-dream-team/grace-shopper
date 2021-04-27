@@ -9,35 +9,25 @@ import { logout } from "../store";
 class Navbar extends React.Component {
   constructor() {
     super();
-    // this.state = {
-    //   quantity: 0,
-    // };
+    this.state = {
+      quantity: 0,
+    };
   }
 
-  componentDidMount() {
-    // if (this.props.auth) {
-    //   console.log("im in if if component did mount");
-    //   this.props.getCart(this.props.auth.id);
-    // }
-  }
+  updateQuantity() {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    let totalQuantity = cart.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
 
-  // updateQuantity() {
-  //   const cart = JSON.parse(localStorage.getItem("cart"));
-  //   let totalQuantity = cart.reduce((total, item) => {
-  //     return total + item.quantity;
-  //   }, 0);
-  //   this.setState({ quantity: totalQuantity });
-  // }
+    this.setState({ quantity: totalQuantity });
+  }
 
   render() {
-    // rendering a static quantity:
-    // const cart = JSON.parse(localStorage.getItem("cart"));
-    // let totalQuantity = cart.reduce((total, item) => {
-    //   return total + item.quantity;
-    // }, 0);
-
-    // using state:
-    // const { quantity } = this.state;
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalQuantity = cartItems.reduce((total, item) => {
+      return total + item.quantity;
+    }, 0);
 
     return (
       <div>
@@ -59,7 +49,7 @@ class Navbar extends React.Component {
               <Link to="/cart">
                 <i className="fa fa-shopping-cart"></i>
                 <span className="badgeWarning" id="cartCount">
-                  {/* {totalQuantity} */}
+                  {totalQuantity}
                 </span>
               </Link>
             </div>
