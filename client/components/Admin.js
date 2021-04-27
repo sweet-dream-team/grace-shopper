@@ -27,11 +27,14 @@ export class Admin extends React.Component {
 
   render() {
     const products = this.props.products;
+    console.log('products: ', products)
     return (
       <div>
         <h1>Dreams</h1>
         <div>
      <Link to={`/admin/create`}><button type="button" > Add New Dream </button></Link>
+     <Link to={`/admin/users`}><button type="button" > View All Users </button></Link>
+
 
           {products.map((product) => (
             <div key={product.id}>

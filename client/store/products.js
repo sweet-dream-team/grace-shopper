@@ -9,6 +9,8 @@ const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 const CREATE_PRODUCT = "CREATE_PRODUCT";
 
+
+
 // action creators
 export const _setProducts = (products) => {
   return {
@@ -31,12 +33,18 @@ export const _createProduct = (product) => {
   };
 };
 
+
+
 // thunks
 
 export const setProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/products");
+      const { data } = await axios.get("/api/products",{
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
       dispatch(_setProducts(data));
     } catch (err) {
       console.log("Error fetching all products via thunk");
@@ -59,7 +67,12 @@ export const deleteDreamThunk = (id, history) => {
 export const createDreamThunk = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("/auth/admin/", product);
+      const token = window.localStorage.getItem('token')
+      const { data } = await axios.post('/auth/admin/', product, {
+      headers: {
+        authorization: token
+      }
+    });
       dispatch(_createProduct(data));
     } catch (error) {
       console.error(error);

@@ -1,5 +1,5 @@
 import React from "react";
-//import {history} from 'react-router-dom'
+import {history} from 'react-router-dom'
 import { connect } from "react-redux";
 import { authenticate } from "../store";
 
@@ -9,6 +9,7 @@ import { authenticate } from "../store";
 
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error, history} = props;
+  console.log('history: ', history)
   console.log('props: ', props)
   return (
     <div>
@@ -69,8 +70,8 @@ const mapDispatch = (dispatch, props) => {
       const formName = evt.target.name;
       const email = evt.target.email.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(email, password, formName));
-       props.history.push('/')
+      dispatch(authenticate(email, password, formName, props.history));
+      
     },
   };
 };

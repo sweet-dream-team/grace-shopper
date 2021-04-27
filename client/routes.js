@@ -9,9 +9,11 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import { me } from "./store";
-import EditProduct from "./components/EditProduct";
-import Admin from "./components/Admin";
-import CreateDream from "./components/CreateDream";
+import EditProduct from './components/EditProduct'
+import Admin from './components/Admin'
+import CreateDream from './components/CreateDream'
+import AllUsers from './components/AllUsers'
+
 
 /**
  * COMPONENT
@@ -36,8 +38,13 @@ class Routes extends Component {
           <Route exact path="/:productId/edit" component={EditProduct} />
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
+          {this.props.user.isAdmin && 
+          <Switch>
           <Route exact path="/admin" component={Admin} />
-          <Route exact path="/admin/create" component={CreateDream} />
+          <Route exact path="/admin/create" component={CreateDream}/>
+          <Route exact path="/admin/users" component={AllUsers}/>
+          </Switch>
+          }
         </Switch>
       </div>
     );
@@ -52,6 +59,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    user: state.auth
   };
 };
 
