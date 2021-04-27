@@ -20,6 +20,8 @@ export class Checkout extends React.Component {
         return total + item.unitPrice * item.quantity;
       }, 0) / 100;
 
+    console.log(this.state);
+
     return (
       <div>
         <button type="button" className="back-to-cart">
@@ -27,16 +29,9 @@ export class Checkout extends React.Component {
         </button>
         <h2>Checkout</h2>
 
-        <div className="email">
+        {/* <div className="email">
           <h4>EMAIL ADDRESS</h4>
           <h5>/users email address/</h5>
-        </div>
-
-        {/* <div className="email">
-          <h4>SHIPPING METHOD</h4>
-          <form>
-            <input name="shippingEmail" placeholder="Shipping Email Address" />
-          </form>
         </div> */}
 
         {/* PLACEHOLDER FOR PAYMENT <form>

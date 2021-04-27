@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSingleProduct } from "../store/singleProduct";
 import { getCart, updateOrderHistory } from "../store/cart";
@@ -114,7 +114,7 @@ export class SingleProduct extends React.Component {
       </div>
     ) : (
       <div>
-        <h2>Sorry, seems like weve run out of stock :(</h2>
+        <h2>Sorry, seems like we've run out of stock :(</h2>
       </div>
     );
   }
