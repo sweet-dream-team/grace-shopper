@@ -5,10 +5,11 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSingleProduct } from "../store/singleProduct";
-import history from "../history";
+import { getCart, updateOrderHistory } from "../store/cart";
+//import history from "../history";
 
 export class SingleProduct extends React.Component {
   constructor() {
@@ -18,10 +19,14 @@ export class SingleProduct extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.cartToDatabase = this.cartToDatabase.bind(this);
   }
   componentDidMount() {
     try {
       this.props.loadSingleProduct(this.props.match.params.productId);
+      if (this.props.auth.id) {
+        this.props.getCart(this.props.auth.id);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -34,7 +39,7 @@ export class SingleProduct extends React.Component {
   handleClick() {
     const newCartItem = {
       ...this.props.singleProduct,
-      productId: this.props.singleProduct.id,
+      //productId: this.props.singleProduct.id,
       quantity: Number(this.state.quantity),
     };
 
@@ -43,18 +48,33 @@ export class SingleProduct extends React.Component {
     if (!existingCart) {
       existingCart = [];
       existingCart.push(newCartItem);
+      this.cartToDatabase(existingCart);
       return localStorage.setItem("cart", JSON.stringify(existingCart));
     }
 
     for (let i = 0; i < existingCart.length; i++) {
       let currentItem = existingCart[i];
-      if (currentItem.productId === newCartItem.productId) {
+      if (currentItem.id === newCartItem.id) {
         currentItem.quantity += Number(this.state.quantity);
+        this.cartToDatabase(existingCart);
         return localStorage.setItem("cart", JSON.stringify(existingCart));
       }
     }
     existingCart.push(newCartItem);
+    this.cartToDatabase(existingCart);
     localStorage.setItem("cart", JSON.stringify(existingCart));
+  }
+
+  cartToDatabase(newCart) {
+    let cartId;
+    if (this.props.cart.id) {
+      cartId = this.props.cart.id;
+    }
+    newCart.map((eachObject) => {
+      this.props.changeCart(eachObject, cartId);
+    });
+
+    this.props.getCart(this.props.auth.id);
   }
 
   render() {
@@ -103,12 +123,17 @@ export class SingleProduct extends React.Component {
 const mapStateToProps = (state) => {
   return {
     singleProduct: state.singleProduct,
+    auth: state.auth,
+    cart: state.cart,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadSingleProduct: (id) => dispatch(getSingleProduct(id)),
+    getCart: (userId) => dispatch(getCart(userId)),
+    changeCart: (eachObj, dbCartId) =>
+      dispatch(updateOrderHistory(eachObj, dbCartId)),
   };
 };
 
