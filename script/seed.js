@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { Product, User, Order },
+  models: { Product, User, Order, OrderHistory },
 } = require("../server/db");
 
 /**
@@ -123,6 +123,7 @@ async function seed() {
       password: "thatswhatshesaid911",
       isAdmin: true,
     }),
+
     User.create({
       email: "dwightschrute@hotmail.com",
       password: "beets123",
@@ -152,7 +153,7 @@ async function seed() {
       price: 4599,
     }),
     Order.create({
-      status: "OPEN",
+      status: "CONFIRMED",
       price: 1099,
     }),
     Order.create({
@@ -161,17 +162,80 @@ async function seed() {
     }),
   ]);
 
+  // Creating OrderHistory
+
+  const orderHistory = await Promise.all([
+    OrderHistory.create({
+      productId: 1,
+      orderId: 1,
+      quantity: 3,
+      price: 2399,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 2,
+      orderId: 1,
+      quantity: 1,
+      price: 4599,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 3,
+      orderId: 1,
+      quantity: 2,
+      price: 2099,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 1,
+      orderId: 2,
+      quantity: 1,
+      price: 2399,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 2,
+      orderId: 2,
+      quantity: 1,
+      price: 4599,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 5,
+      orderId: 2,
+      quantity: 1,
+      price: 1699,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 10,
+      orderId: 3,
+      quantity: 1,
+      price: 1799,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 10,
+      orderId: 4,
+      quantity: 1,
+      price: 4599,
+      dateSubmitted: new Date(),
+    }),
+    OrderHistory.create({
+      productId: 6,
+      orderId: 4,
+      quantity: 1,
+      price: 1099,
+      dateSubmitted: new Date(),
+    }),
+  ]);
+  //Association
+  await users[1].addOrder([orders[0], orders[1]]);
+
   console.log(
     `seeded ${products.length} dreams & ${users.length} users & ${orders.length} orders`
   );
   console.log(`seeded successfully`);
-
-  //   return {
-  //     users: {
-  //       cody: users[0],
-  //       murphy: users[1],
-  //     },
-  //   };
 }
 
 /*
