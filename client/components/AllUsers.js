@@ -9,27 +9,33 @@ import { setUsersThunk } from "../store/users";
 
 export class AllUsers extends React.Component {
   componentDidMount() {
+    console.log("is the component mounting")
     this.props.getUsers();
   }
   
 
   render() {
+      console.log("state: ", this.state)
       console.log('this.props:', this.props)
     const users = this.props.users;
     return (
-
       <div>
+        { !this.props.users.length ? 
+        (<h2> L O A D I N G... </h2>) :
+      (<div>
         <h1>Users</h1>
         <div>
           {users.map((user) => (
             <div key={user.id}>
             <h1>{user.email}</h1>
-            <p>Password: {user.password}</p>
             </div>
           ))}
         </div>
       </div>
-    );
+    )
+        }
+        </div>
+    )
   }
 }
 

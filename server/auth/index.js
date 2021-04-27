@@ -4,6 +4,8 @@ module.exports = router
 
 
 router.use("/admin", require("./admin"))
+//router.use("/users", require("./users"));
+
 
 router.post('/login', async (req, res, next) => {
   try {

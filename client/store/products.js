@@ -41,9 +41,9 @@ export const _createProduct = (product) =>{
 export const setProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/products", {
+      const { data } = await axios.get("/api/products",{
       headers: {
-        authorization: token
+        authorization: window.localStorage.getItem('token')
       }
     });
       dispatch(_setProducts(data));

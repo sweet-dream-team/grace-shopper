@@ -17,9 +17,15 @@ export const _setUsers = (users) => {
 /** Thunks */
 
 export const setUsersThunk = () => {
+  console.log('is this running')
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/users");
+      const { data } = await axios.get("/auth/admin/users", {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
+      console.log('data: ' , data)
       dispatch(_setUsers(data));
     } catch (err) {
       console.log("Error fetching all users via thunk");
