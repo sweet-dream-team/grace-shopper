@@ -29,6 +29,19 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 
+router.get("/user/:orderId", async (req, res, next) => {
+  try {
+    const cart = await OrderHistory.findAll({
+      where: {
+        orderId: req.params.orderId,
+      },
+    });
+    res.json(cart);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post("/:orderId", async (req, res, next) => {
   try {
     console.log(req.body);
