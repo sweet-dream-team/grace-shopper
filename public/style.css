@@ -229,8 +229,7 @@ form h3{
 
 .all-products-view h1 {
   font-size: 30px;
-  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
-    serif;
+  font-family: 'Amatic SC', cursive;
   text-align: center;
   padding: 20px;
   background-color: rgb(252, 243, 250);
@@ -253,16 +252,14 @@ form h3{
 
 .all-products-view h2 {
   font-size: 20px;
-  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
-    serif;
+  font-family: 'Amatic SC', cursive;
   text-align: center;
   padding: 10px;
 }
 
 .all-products-view p {
   font-size: 15px;
-  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
-    serif;
+  font-family: 'Amatic SC', cursive;
   text-align: left;
   padding: 10px;
 }
