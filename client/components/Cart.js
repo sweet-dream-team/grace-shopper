@@ -92,7 +92,6 @@ export class Cart extends React.Component {
         return total + item.unitPrice * item.quantity;
       }, 0) / 100;
 
-    const isLoggedIn = this.props.isLoggedIn;
     return (
       <div className="cart">
         <div className="cart-header">
