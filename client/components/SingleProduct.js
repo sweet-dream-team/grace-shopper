@@ -83,32 +83,40 @@ export class SingleProduct extends React.Component {
 
     return product.id !== undefined ? (
       <div>
-        <Link to="/dreams">Back to Dreams</Link>
+        <Link to="/dreams" className="back-to-dreams">
+          Back to Dreams
+        </Link>
         <div className="singleProduct">
-          <img src={product.imageURL} />
-          <h2>{product.productName}</h2>
-          <h2>Type: {product.type}</h2>
-          <h3>${product.unitPrice / 100}</h3>
-          <h3>{product.description}</h3>
+          <div className="single-product-main">
+            <h2>{product.productName}</h2>
+            <img src={product.imageURL} />
+          </div>
+          {/* <h2>Type: {product.type}</h2> */}
+          <div className="singleProductDetails">
+            <h3>{product.description}</h3>
 
-          <div className="addToCart">
-            <select
-              name="quantity"
-              value={quantity}
-              onChange={this.handleChange}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <div className="summary">
+              <h3>${product.unitPrice / 100}</h3>
+              <div className="add-to-cart-buttons">
+                <select
+                  name="quantity"
+                  value={quantity}
+                  onChange={this.handleChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
 
-            <button type="button" onClick={() => this.handleClick()}>
-              <Link to="/dreams">
-                Add To Cart <i className="fa fa-cart-plus"></i>
-              </Link>
-            </button>
+                <button type="button" onClick={() => this.handleClick()}>
+                  <Link to="/dreams">
+                    Add To Cart <i className="fa fa-cart-plus"></i>
+                  </Link>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

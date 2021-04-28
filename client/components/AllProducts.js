@@ -78,25 +78,27 @@ export class AllProducts extends React.Component {
     const products = this.props.products;
 
     return (
-      <div>
+      <div className="all-products-view">
         <h1>Dreams</h1>
-        <div className="allProductsContainer">
+        <div className="all-products-container">
           {products.map((product) => (
-            <div key={product.id}>
+            <div key={product.id} className="single-product">
               <Link to={`/dreams/${product.id}`}>
-                <h1>{product.productName}</h1>
                 <img src={product.imageURL} />
               </Link>
-              <p>Price: ${product.unitPrice / 100}</p>
-              <div className="addToCart">
-                <button
-                  type="button"
-                  onClick={() => {
-                    this.handleClick(product.id);
-                  }}
-                >
-                  Add To Cart <i className="fa fa-cart-plus"></i>
-                </button>
+              <div className="single-product-details">
+                <h2>{product.productName}</h2>
+                <p>${product.unitPrice / 100}</p>
+                <div className="addToCart">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      this.handleClick(product.id);
+                    }}
+                  >
+                    Add to Cart <i className="fa fa-cart-plus"></i>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
