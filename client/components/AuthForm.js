@@ -12,10 +12,10 @@ const AuthForm = (props) => {
   console.log('history: ', history)
   console.log('props: ', props)
   return (
-    <div>
-      <form className='form' onSubmit={handleSubmit} name={name}>
+    <div className='wholething'>
+      <form  onSubmit={handleSubmit} name={name}>
         <div>
-        <div id='displayMessage'>
+        <div className='displayMessage'>
         {displayName === 'Login' ? 
         (<h3>Welcome back! Put your info in below to get dreamin'! </h3>) :
         (<h3>Become a dreammate!! Input your info below & sign on up!</h3>)}
@@ -31,10 +31,12 @@ const AuthForm = (props) => {
           </label>
           <input name="password" type="password" />
         </div>
-        <div>
-          <button type="submit">{displayName}</button>
+        <div><br/>
+          <button className='authbutton' type="submit">{displayName}</button>
         </div>
+        
         {error && error.response && <div> {error.response.data} </div>}
+       
       </form>
     </div>
   );

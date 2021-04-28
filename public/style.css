@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+ font-family: 'Amatic SC', cursive;
+
 }
 
 a {
@@ -151,6 +152,51 @@ color: white;
   margin: 10px;
   margin-top: 70px;
   height: 200px;
+}
+
+/* Auth Form */
+
+.wholething{
+  font-size: 40px;
+ background-image: linear-gradient(0deg, rgba(243,213,250,0) 0%, rgba(200,246,250,0.85) 100%);
+background-size: cover;
+width: 100%;
+height: auto;
+}
+
+form input{
+  box-shadow: 0px 0px 5px #87C4DA, 1px 1px 5px #87C4DA, 3px 3px 5px #87C4DA;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  height: auto;
+}
+
+form h3{
+  text-align: center;
+}
+
+.authbutton {
+	box-shadow: 3px 4px 17px 0px #bc8ee8;
+	background:linear-gradient(to bottom, #cceff5 5%, #e5c5e8 100%);
+	background-color:#cceff5;
+	border-radius:15px;
+	border:1px solid #faf2ff;
+	display:inline-block;
+	cursor:pointer;
+	color:#fafeff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #bb88eb;
+}
+.authbutton:hover {
+	background:linear-gradient(to bottom, #e5c5e8 5%, #cceff5 100%);
+	background-color:#e5c5e8;
+}
+.authbutton:active {
+	position:relative;
+	top:1px;
 }
 
 

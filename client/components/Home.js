@@ -6,7 +6,7 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <img src='logo.png' className='homelogo'/>
+      <img src='logo2.png' className='homelogo'/>
       <div className='catchphrase'>
       <p> Your dreams  <strong>await</strong> you</p>
       </div>
