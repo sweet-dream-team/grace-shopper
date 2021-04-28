@@ -1,6 +1,5 @@
 body {
- font-family: 'Amatic SC', cursive;
-
+  font-family: "Amatic SC", cursive;
 }
 
 a {
@@ -18,12 +17,10 @@ form div {
 
 /* navbar */
 
-
 nav div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 nav a {
@@ -33,20 +30,24 @@ nav a {
   position: sticky;
   top: 0;
 }
-.outside{
+.outside {
   font-size: 20px;
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   border-style: inset;
-  background-image: linear-gradient(0deg, rgba(251,240,253,0.30) 0%, rgba(117,147,216,0.85) 100%);
+  background-image: linear-gradient(
+    0deg,
+    rgba(251, 240, 253, 0.3) 0%,
+    rgba(117, 147, 216, 0.85) 100%
+  );
 }
 nav a:hover {
   color: blue;
   padding: 14px;
 }
 
-.logo{
+.logo {
   height: 90px;
-  width: 90px
+  width: 90px;
 }
 
 .badgeWarning {
@@ -59,38 +60,37 @@ nav a:hover {
   height: 800px;
   background-image: url("https://moodymonth.s3.eu-west-2.amazonaws.com/media/images/articles/main_images/2_1_1200/updated-how-do-our-hormones-affect-our-dreams-5c76da9977241.jpg");
   background-size: cover;
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   text-align: center;
 }
 
-.homelogo{
+.homelogo {
   padding-bottom: 5px;
 }
-.catchphrase{
- text-shadow:
-   0 0 10px rgba(222, 109, 241, .7),
-   0 0 40px rgba(222, 109, 241, .7),
-   0 0 100px rgba(222, 109, 241, .7);
-font-size: 80px;
-color: white;
+.catchphrase {
+  text-shadow: 0 0 10px rgba(222, 109, 241, 0.7),
+    0 0 40px rgba(222, 109, 241, 0.7), 0 0 100px rgba(222, 109, 241, 0.7);
+  font-size: 80px;
+  color: white;
 }
 
-.catchphrase strong{
-  text-shadow:
-   0 0 10px rgba(88, 186, 247, .7),
-   0 0 40px rgba(88, 186, 247, .7),
-   0 0 100px rgba(88, 186, 247, .7);
+.catchphrase strong {
+  text-shadow: 0 0 10px rgba(88, 186, 247, 0.7),
+    0 0 40px rgba(88, 186, 247, 0.7), 0 0 100px rgba(88, 186, 247, 0.7);
 }
 
 /* Cart */
 
 .cart-header {
   margin: 10px;
+  font-family: "Caveat", cursive;
+  text-align: center;
 }
+
 .cart-bottom {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .cart-container {
@@ -102,9 +102,10 @@ color: white;
   display: flex;
   flex-direction: row;
   border: 0.5px solid gray;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   width: 600px;
+  justify-content: space-between;
 }
 
 .cart-item img {
@@ -118,95 +119,216 @@ color: white;
   justify-content: space-between;
 }
 
+.cart-item-main {
+  text-align: right;
+}
+
+.cart-item-main h7 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.cart-item-details h3 {
+  font-size: 25px;
+}
+
+.cart-item-details p {
+  font-size: 20px;
+}
+.cart-item-details span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.cart-item-update button {
+  background-color: rgb(188, 228, 247);
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.cart-item-update button:hover {
+  background-color: rgb(144, 216, 250);
+}
+
+.cart-item-update select {
+  width: 30px;
+  height: 30px;
+}
+
 .order-summary {
   border: 0.5px solid gray;
   padding: 15px;
   margin: 10px;
   width: 180px;
   height: 200px;
+  text-align: center;
 }
 
+.order-summary h3 {
+  font-size: 25px;
+}
+
+.order-summary p {
+  font-size: 20px;
+}
+
+.order-summary span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.checkout {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  background-color: rgb(149, 212, 241);
+  border: none;
+  color: white;
+  padding: 6px;
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 20px;
+  height: 30px;
+  opacity: 100%;
+  text-decoration: none;
+}
+
+.checkout:hover {
+  background-color: rgb(19, 129, 180);
+}
 /* Checkout */
 
+.back-to-cart {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  background-color: rgb(188, 228, 247);
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 20px;
+  height: 30px;
+  opacity: 100%;
+  text-decoration: none;
+}
+
+.back-to-cart:hover {
+  background-color: rgb(151, 229, 248);
+}
 .checkout-summary {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
+
 .checkout-container {
   display: flex;
   flex-direction: column;
 }
 
+.checkout-container h4 {
+  font-size: 25px;
+}
+
 .checkout-item {
-  display: flex;
-  flex-direction: column;
-  border: 0.5px solid gray;
-  padding: 10px;
+  padding-left: 10px;
   margin: 10px;
-  width: 600px;
+  width: 300px;
+  background-color: rgba(196, 240, 248, 0.418);
+}
+
+.checkout-item h5 {
+  font-size: 25px;
+}
+
+.checkout-item h6 {
+  font-size: 20px;
+}
+
+.checkout-item p {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .checkout-total {
-  border: 0.5px solid gray;
+  background-color: rgba(196, 240, 248, 0.418);
   padding: 10px;
   margin: 10px;
-  margin-top: 70px;
+  margin-top: 106px;
   height: 200px;
+  width: 150px;
+  font-size: 20px;
 }
 
+.checkout-total button {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  background-color: rgb(18, 149, 182);
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 20px;
+  height: 30px;
+  opacity: 100%;
+}
+
+.checkout-total button:hover {
+  background-color: rgb(133, 224, 247);
+}
 
 /* Auth Form */
 
-.wholething{
+.wholething {
   font-size: 40px;
- background-image: linear-gradient(0deg, rgba(243,213,250,0) 0%, rgba(200,246,250,0.85) 100%);
-background-size: cover;
-width: 100%;
-height: auto;
-
+  background-image: linear-gradient(
+    0deg,
+    rgba(243, 213, 250, 0) 0%,
+    rgba(200, 246, 250, 0.85) 100%
+  );
+  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
-form input{
-  box-shadow: 0px 0px 5px #87C4DA, 1px 1px 5px #87C4DA, 3px 3px 5px #87C4DA;
-  font-family: 'Amatic SC', cursive;
+form input {
+  box-shadow: 0px 0px 5px #87c4da, 1px 1px 5px #87c4da, 3px 3px 5px #87c4da;
+  font-family: "Amatic SC", cursive;
   font-size: 30px;
   height: auto;
 }
 
-form h3{
+form h3 {
   text-align: center;
-   text-shadow:
-   0 0 10px rgba(222, 109, 241, .7),
-   0 0 40px rgba(222, 109, 241, .7),
-   0 0 100px rgba(222, 109, 241, .7);
-color: white;
+  text-shadow: 0 0 10px rgba(222, 109, 241, 0.7),
+    0 0 40px rgba(222, 109, 241, 0.7), 0 0 100px rgba(222, 109, 241, 0.7);
+  color: white;
 }
 
 .authbutton {
-	box-shadow: 3px 4px 17px 0px #bc8ee8;
-	background:linear-gradient(to bottom, #cceff5 5%, #e5c5e8 100%);
-	background-color:#cceff5;
-	border-radius:15px;
-	border:1px solid #faf2ff;
-	display:inline-block;
-	cursor:pointer;
-	color:#fafeff;
-	font-family:Arial;
-	font-size:17px;
-	padding:7px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #bb88eb;
+  box-shadow: 3px 4px 17px 0px #bc8ee8;
+  background: linear-gradient(to bottom, #cceff5 5%, #e5c5e8 100%);
+  background-color: #cceff5;
+  border-radius: 15px;
+  border: 1px solid #faf2ff;
+  display: inline-block;
+  cursor: pointer;
+  color: #fafeff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #bb88eb;
 }
 .authbutton:hover {
-	background:linear-gradient(to bottom, #e5c5e8 5%, #cceff5 100%);
-	background-color:#e5c5e8;
+  background: linear-gradient(to bottom, #e5c5e8 5%, #cceff5 100%);
+  background-color: #e5c5e8;
 }
 .authbutton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
-
-
 
 /* checkout-form */
 
@@ -235,7 +357,7 @@ color: white;
 
 .all-products-view h1 {
   font-size: 30px;
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   text-align: center;
   padding: 20px;
   background-color: rgb(252, 243, 250);
@@ -257,17 +379,18 @@ color: white;
 }
 
 .all-products-view h2 {
-  font-size: 20px;
-  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  font-family: "Amatic SC", cursive;
   text-align: center;
   padding: 10px;
 }
 
 .all-products-view p {
   font-size: 15px;
-  font-family: 'Amatic SC', cursive;
-  text-align: left;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: right;
   padding: 10px;
+  margin: 10px;
 }
 
 .single-product {
@@ -299,16 +422,18 @@ color: white;
 
 .addToCart {
   text-align: right;
-  margin: 10px;
 }
 
 .addToCart button {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
   background-color: rgb(235, 186, 191);
   border: none;
   color: white;
   padding: 5px 5px;
   cursor: pointer;
   margin: 10px;
+  margin-bottom: 20px;
   height: 30px;
   opacity: 100%;
 }
@@ -329,13 +454,25 @@ color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 120px;
+  font-family: "Caveat", cursive;
 }
+
 .back-to-dreams {
-  color: rgb(93, 99, 196);
+  color: rgb(9, 172, 172);
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+  text-align: right;
+  margin: 10px;
+  text-decoration: underline;
 }
 
 .back-to-dreams:hover {
-  color: rgb(48, 50, 100);
+  color: rgb(174, 228, 230);
+}
+
+.single-product-main {
+  text-align: center;
 }
 
 .summary {
@@ -346,18 +483,31 @@ color: white;
   justify-content: space-between;
 }
 
+.summary p {
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 10px;
+  margin: 10px;
+}
+
+.add-to-cart-buttons select {
+  width: 50px;
+  height: 40px;
+  text-align: center;
+}
 .add-to-cart-buttons button {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
   background-color: rgb(235, 186, 191);
   border: none;
   color: white;
   padding: 5px 5px;
   cursor: pointer;
   margin: 10px;
-  height: 30px;
+  height: 40px;
   opacity: 100%;
 }
 
 .add-to-cart-buttons button:hover {
   background-color: rgb(226, 164, 171);
 }
-

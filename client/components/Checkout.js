@@ -23,11 +23,10 @@ export class Checkout extends React.Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div className="whole-checkout">
         <button type="button" className="back-to-cart">
           <Link to="/cart">Back to Cart</Link>
         </button>
-        <h2>Checkout</h2>
 
         {/* <div className="email">
           <h4>EMAIL ADDRESS</h4>
@@ -48,7 +47,7 @@ export class Checkout extends React.Component {
                 <div key={item.id} className="checkout-item">
                   <h5>{item.productName}</h5>
                   <h6>Quantity: {item.quantity}</h6>
-                  <h6>Price: ${(item.unitPrice * item.quantity) / 100}</h6>
+                  <p>${(item.unitPrice * item.quantity) / 100}</p>
                 </div>
               ))
             ) : (

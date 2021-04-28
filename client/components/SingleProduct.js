@@ -37,6 +37,7 @@ export class SingleProduct extends React.Component {
   }
 
   handleClick() {
+    alert("a dream was added to your cart");
     const newCartItem = {
       ...this.props.singleProduct,
       //productId: this.props.singleProduct.id,
@@ -83,8 +84,8 @@ export class SingleProduct extends React.Component {
 
     return product.id !== undefined ? (
       <div>
-        <Link to="/dreams" className="back-to-dreams">
-          Back to Dreams
+        <Link to="/dreams">
+          <p className="back-to-dreams">Back to Dreams</p>
         </Link>
         <div className="singleProduct">
           <div className="single-product-main">
@@ -96,7 +97,7 @@ export class SingleProduct extends React.Component {
             <h3>{product.description}</h3>
 
             <div className="summary">
-              <h3>${product.unitPrice / 100}</h3>
+              <p>${product.unitPrice / 100}</p>
               <div className="add-to-cart-buttons">
                 <select
                   name="quantity"
