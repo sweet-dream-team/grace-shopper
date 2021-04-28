@@ -8,6 +8,8 @@ import axios from "axios";
 const UPDATE_CART = "UPDATE_CART";
 const GET_CART = "GET_CART";
 
+//action creators
+
 const _getCart = (cart) => {
   return {
     type: GET_CART,
@@ -15,7 +17,6 @@ const _getCart = (cart) => {
   };
 };
 
-//action creators
 const _updateCart = (cart) => {
   return {
     type: UPDATE_CART,
@@ -23,7 +24,7 @@ const _updateCart = (cart) => {
   };
 };
 
-//get cart
+//get cart, more like get Order
 export const getCart = (userId) => {
   return async (dispatch) => {
     try {

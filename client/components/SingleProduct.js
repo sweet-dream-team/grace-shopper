@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSingleProduct } from "../store/singleProduct";
 import { getCart, updateOrderHistory } from "../store/cart";

@@ -1,7 +1,15 @@
+/* eslint-disable no-else-return */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable lines-between-class-members */
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { setProducts } from "../store/products";
+import cart, { getCart, updateOrderHistory } from "../store/cart";
+import cartArray, { getCartArray } from "../store/cartArray";
+import { getSingleCartProduct } from "../store/singleProduct";
 
 export class Cart extends React.Component {
   constructor() {
@@ -14,8 +22,15 @@ export class Cart extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.getProducts();
     this.setState({ cart: JSON.parse(localStorage.getItem("cart")) });
+
+    if (this.props.auth.id) {
+      this.props.getCart(this.props.auth.id);
+    }
+
+    if (this.props.cart.id) {
+      this.props.getCartItems(this.props.cart.id);
+    }
   }
 
   handleChange(event) {
@@ -29,7 +44,6 @@ export class Cart extends React.Component {
       }
       updatedCartItems.push(item);
     }
-
     localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     this.setState({ cart: JSON.parse(localStorage.getItem("cart")) });
   }
@@ -44,16 +58,35 @@ export class Cart extends React.Component {
         updatedCartItems.push(item);
       }
     }
-
     localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     this.setState({ cart: JSON.parse(localStorage.getItem("cart")) });
   }
 
   render() {
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const isLoggedIn = this.props.isLoggedIn;
+
+    let cartItems = [];
+
+    if (isLoggedIn) {
+      console.log("HI IM HERE");
+
+      const cartItemsMessy = this.props.cartArray;
+      const productsArray = this.props.products;
+      cartItemsMessy.map((eachCartItem) => {
+        for (let i = 0; i < productsArray.length; i++) {
+          if (eachCartItem.productId === productsArray[i].id) {
+            productsArray[i]["quantity"] = eachCartItem.quantity;
+            cartItems.push(productsArray[i]);
+          }
+        }
+      });
+    } else {
+      cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    }
     const totalQuantity = cartItems.reduce((total, item) => {
       return total + item.quantity;
     }, 0);
+
     const totalPrice =
       cartItems.reduce((total, item) => {
         return total + item.unitPrice * item.quantity;
@@ -64,7 +97,6 @@ export class Cart extends React.Component {
         <div className="cart-header">
           <h3>MY CART: {totalQuantity} items</h3>
         </div>
-
         <div className="cart-bottom">
           <div className="cart-container">
             {cartItems.length > 0 ? (
@@ -89,7 +121,6 @@ export class Cart extends React.Component {
                         <option value="4">4</option>
                         <option value="5">5</option>
                       </select>
-
                       <button
                         type="button"
                         className="delete"
@@ -106,12 +137,15 @@ export class Cart extends React.Component {
               <div>Cart is empty</div>
             )}
           </div>
-
           <div className="order-summary">
             <h3>ORDER SUMMARY</h3>
             <p>Total: ${totalPrice} </p>
             <button type="button" className="checkout">
-              <Link to="/checkout">Go to Checkout</Link>
+              {isLoggedIn ? (
+                <Link to="/checkout">Go to Checkout</Link>
+              ) : (
+                <Link to="/checkout-login">Go to Checkout</Link>
+              )}
             </button>
           </div>
         </div>
@@ -122,15 +156,22 @@ export class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    // products: state.products,
+    auth: state.auth,
+    isLoggedIn: !!state.auth.id,
+    cart: state.cart,
+    cartArray: state.cartArray,
+    products: state.products,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getProducts: () => dispatch(setProducts()),
-    // getCart thunk
-    // removeItem thunk
+    loadSingleProduct: (id) => dispatch(getSingleCartProduct(id)),
+    getCart: (userId) => dispatch(getCart(userId)),
+    changeCart: (eachObj, dbCartId) =>
+      dispatch(updateOrderHistory(eachObj, dbCartId)),
+    getCartItems: (orderId) => dispatch(getCartArray(orderId)),
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
