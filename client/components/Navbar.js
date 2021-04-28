@@ -32,8 +32,8 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav>
-          <div>
-            <Link to="/">Dreamporium</Link>
+          <div className='outside'>
+            <Link to="/"><img src='/logo.png' className='logo'/></Link>
             <div>
               <Link to="/dreams">Dreams</Link>
               {this.props.isLoggedIn ? (
@@ -54,8 +54,8 @@ class Navbar extends React.Component {
               </Link>
             </div>
           </div>
-        </nav>
-        <hr />
+       </nav>
+        {/* <hr /> */}
       </div>
     );
   }

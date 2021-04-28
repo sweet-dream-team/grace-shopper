@@ -13,7 +13,7 @@ const AuthForm = (props) => {
   console.log('props: ', props)
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      <form className='form' onSubmit={handleSubmit} name={name}>
         <div>
         <div id='displayMessage'>
         {displayName === 'Login' ? 

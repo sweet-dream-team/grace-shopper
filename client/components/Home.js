@@ -6,10 +6,10 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <h3>Dreamporium</h3>
-      <p>
-        Your dreams <i>await</i> you
-      </p>
+      <img src='logo.png' className='homelogo'/>
+      <div className='catchphrase'>
+      <p> Your dreams  <strong>await</strong> you</p>
+      </div>
     </div>
   );
 };

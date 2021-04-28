@@ -16,20 +16,36 @@ form div {
 }
 
 /* navbar */
+
+
 nav div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
 }
 
 nav a {
   text-decoration: none;
   color: black;
-  padding: 14px;
+  padding: 15px;
+  position: sticky;
+  top: 0;
 }
-
+.outside{
+  font-size: 20px;
+  font-family: 'Amatic SC', cursive;
+  border-style: inset;
+  background-image: linear-gradient(0deg, rgba(251,240,253,0.30) 0%, rgba(117,147,216,0.85) 100%);
+}
 nav a:hover {
   color: blue;
   padding: 14px;
+}
+
+.logo{
+  height: 90px;
+  width: 90px
 }
 
 .badgeWarning {
@@ -42,8 +58,27 @@ nav a:hover {
   height: 800px;
   background-image: url("https://moodymonth.s3.eu-west-2.amazonaws.com/media/images/articles/main_images/2_1_1200/updated-how-do-our-hormones-affect-our-dreams-5c76da9977241.jpg");
   background-size: cover;
-  padding: 50px;
+  font-family: 'Amatic SC', cursive;
   text-align: center;
+}
+
+.homelogo{
+  padding-bottom: 5px;
+}
+.catchphrase{
+ text-shadow:
+   0 0 10px rgba(222, 109, 241, .7),
+   0 0 40px rgba(222, 109, 241, .7),
+   0 0 100px rgba(222, 109, 241, .7);
+font-size: 80px;
+color: white;
+}
+
+.catchphrase strong{
+  text-shadow:
+   0 0 10px rgba(88, 186, 247, .7),
+   0 0 40px rgba(88, 186, 247, .7),
+   0 0 100px rgba(88, 186, 247, .7);
 }
 
 /* Cart */
@@ -117,3 +152,5 @@ nav a:hover {
   margin-top: 70px;
   height: 200px;
 }
+
+
