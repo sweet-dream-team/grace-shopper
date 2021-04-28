@@ -8,31 +8,16 @@ import { logout } from "../store";
 class Navbar extends React.Component {
   constructor() {
     super();
-    this.state = {
-      quantity: 0,
-    };
-  }
-
-  updateQuantity() {
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    let totalQuantity = cart.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
-
-    this.setState({ quantity: totalQuantity });
   }
 
   render() {
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    const totalQuantity = cartItems.reduce((total, item) => {
-      return total + item.quantity;
-    }, 0);
-
     return (
       <div>
         <nav>
-          <div className='outside'>
-            <Link to="/"><img src='/logo.png' className='logo'/></Link>
+          <div className="outside">
+            <Link to="/">
+              <img src="/logo.png" className="logo" />
+            </Link>
             <div>
               <Link to="/dreams">Dreams</Link>
               {this.props.isLoggedIn ? (
@@ -47,13 +32,10 @@ class Navbar extends React.Component {
               )}
               <Link to="/cart">
                 <i className="fa fa-shopping-cart"></i>
-                <span className="badgeWarning" id="cartCount">
-                  {totalQuantity}
-                </span>
               </Link>
             </div>
           </div>
-       </nav>
+        </nav>
         {/* <hr /> */}
       </div>
     );

@@ -32,6 +32,7 @@ export class AllProducts extends React.Component {
   }
 
   handleClick(id) {
+    alert("a dream was added to your cart");
     console.log("props.products", this.props.products);
     const newCartItem = {
       ...this.props.products[id - 1],
@@ -56,6 +57,7 @@ export class AllProducts extends React.Component {
         return localStorage.setItem("cart", JSON.stringify(existingCart));
       }
     }
+
     existingCart.push(newCartItem);
     this.cartToDatabase(existingCart);
     localStorage.setItem("cart", JSON.stringify(existingCart));

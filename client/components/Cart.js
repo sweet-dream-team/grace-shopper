@@ -106,9 +106,11 @@ export class Cart extends React.Component {
                   <div className="cart-item-main">
                     <div className="cart-item-details">
                       <h3>{item.productName}</h3>
-                      <h4>Price: ${item.unitPrice / 100}</h4>
+                      <p>
+                        Price: <span>${item.unitPrice / 100}</span>
+                      </p>
                     </div>
-                    <h3>${(item.unitPrice * item.quantity) / 100}</h3>
+                    <h7>${(item.unitPrice * item.quantity) / 100}</h7>
                     <div className="cart-item-update">
                       <select
                         name={item.id}
@@ -139,7 +141,9 @@ export class Cart extends React.Component {
           </div>
           <div className="order-summary">
             <h3>ORDER SUMMARY</h3>
-            <p>Total: ${totalPrice} </p>
+            <p>
+              Total: <span>${totalPrice}</span>{" "}
+            </p>
             <button type="button" className="checkout">
               {isLoggedIn ? (
                 <Link to="/checkout">Go to Checkout</Link>
