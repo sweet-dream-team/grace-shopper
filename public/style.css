@@ -154,6 +154,7 @@ color: white;
   height: 200px;
 }
 
+
 /* Auth Form */
 
 .wholething{
@@ -199,4 +200,161 @@ form h3{
 	top:1px;
 }
 
+
+
+/* checkout-form */
+
+.customer-form form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+}
+
+.guest-form form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px;
+}
+
+/* All Products */
+
+.all-products-view {
+  width: 100%;
+  height: auto;
+  background-image: url("https://images.unsplash.com/photo-1618319991690-ba4e77a04471?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZHJlYW15JTIwc2t5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60");
+  background-size: cover;
+}
+
+.all-products-view h1 {
+  font-size: 30px;
+  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(252, 243, 250);
+  background-color: rgb(252, 243, 250);
+  background-size: cover;
+}
+
+.all-products-view img {
+  border-radius: 50%;
+}
+
+.all-products-container {
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  text-decoration: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.all-products-view h2 {
+  font-size: 20px;
+  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  text-align: center;
+  padding: 10px;
+}
+
+.all-products-view p {
+  font-size: 15px;
+  font-family: Trirong, Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  text-align: left;
+  padding: 10px;
+}
+
+.single-product {
+  background-color: white;
+  width: 100%;
+  margin: 10px;
+  flex-basis: 30%;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgb(197, 221, 241);
+}
+
+.single-product img {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.single-product img:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgb(212, 228, 241);
+}
+
+.single-product-details {
+  background-color: rgb(252, 243, 250);
+}
+
+.addToCart {
+  text-align: right;
+  margin: 10px;
+}
+
+.addToCart button {
+  background-color: rgb(235, 186, 191);
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  margin: 10px;
+  height: 30px;
+  opacity: 100%;
+}
+
+.addToCart button:hover {
+  background-color: rgb(226, 164, 171);
+}
+
+/* single product page*/
+.singleProduct {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.singleProductDetails {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.back-to-dreams {
+  color: rgb(93, 99, 196);
+}
+
+.back-to-dreams:hover {
+  color: rgb(48, 50, 100);
+}
+
+.summary {
+  display: flex;
+  padding: 20px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+}
+
+.add-to-cart-buttons button {
+  background-color: rgb(235, 186, 191);
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  margin: 10px;
+  height: 30px;
+  opacity: 100%;
+}
+
+.add-to-cart-buttons button:hover {
+  background-color: rgb(226, 164, 171);
+}
 

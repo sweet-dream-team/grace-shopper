@@ -59,6 +59,7 @@ export class Cart extends React.Component {
         return total + item.unitPrice * item.quantity;
       }, 0) / 100;
 
+    const isLoggedIn = this.props.isLoggedIn;
     return (
       <div className="cart">
         <div className="cart-header">
@@ -111,7 +112,11 @@ export class Cart extends React.Component {
             <h3>ORDER SUMMARY</h3>
             <p>Total: ${totalPrice} </p>
             <button type="button" className="checkout">
-              <Link to="/checkout">Go to Checkout</Link>
+              {isLoggedIn ? (
+                <Link to="/checkout">Go to Checkout</Link>
+              ) : (
+                <Link to="/checkout-login">Go to Checkout</Link>
+              )}
             </button>
           </div>
         </div>
